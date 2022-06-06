@@ -13,7 +13,7 @@
     @apply absolute md:relative md:w-1/2 w-full h-full md:h-screen left-0 top-0 before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-t before:from-blue-300 before:to-purple-800 z-10 before:mix-blend-screen;
   }
   .contentBx {
-    @apply flex w-screen md:w-1/2 mt-10 md:mt-0 md:h-screen justify-center items-center z-10;
+    @apply flex w-screen md:w-1/2 h-screen justify-center items-center z-10;
   }
   .imgBx > img {
     @apply w-full h-full object-cover;
@@ -37,7 +37,7 @@
   .card {
     @apply shadow-xl relative m-auto bg-slate-500/50 backdrop-blur-2xl rounded-md w-11/12 md:w-9/12 lg:w-10/12 h-48 transition-all duration-500;
   }
-
+  .card:focus,
   .card:hover {
     @apply h-[320px];
   }
@@ -45,13 +45,14 @@
   .cardImg {
     @apply bg-slate-400/50 shadow-xl rounded-xl w-40 h-40 overflow-hidden left-1/2 absolute -translate-x-1/2 -top-1/4 transition-all duration-300;
   }
-
+  .card:active .cardImg,
   .card:hover .cardImg {
     @apply h-44 w-44;
   }
   .details {
     @apply flex flex-col px-4 translate-y-32 transition-all duration-500;
   }
+  .card:active .details,
   .card:hover .details {
     @apply translate-y-28;
   }
@@ -83,7 +84,7 @@
     @apply py-10 px-3 md:px-0 mx-4 rounded-lg shadow-xl md:py-0 flex md:gap-4 items-center md:flex-row flex-col bg-gradient-to-tr from-teal-300 to-sky-800;
   }
   .contentList {
-    @apply w-full lg:w-9/12 m-auto flex flex-col gap-5 bg-slate-500 md:p-10 md:rounded-lg py-10 md:mb-24;
+    @apply w-full lg:w-9/12 m-auto flex flex-col gap-5 bg-slate-500 md:p-10 md:rounded-lg py-10 mb-24;
   }
   .contentGrid {
     @apply grid w-full  md:grid-cols-2 lg:grid-cols-3 lg:w-9/12 gap-y-24 mt-20 mb-10 md:mb-24 m-auto p-5;

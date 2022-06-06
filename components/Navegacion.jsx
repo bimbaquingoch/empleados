@@ -23,21 +23,21 @@ const Navegacion = () => {
       <nav
         className={`navbar ${!sideBar && "-translate-x-16"} md:translate-x-0`}>
         <Link href={"/"}>
-          <a className='flex items-center btnNavs group'>
+          <a className='flex items-center btnNavs group home'>
             <BiHome size={40} />
             <span className='text-nav group-hover:scale-100'>home</span>
           </a>
         </Link>
         <Link href={"/newEmpleado"}>
-          <a className='flex items-center btnNavs group' href=''>
+          <a className='flex items-center btnNavs group nuevo' href=''>
             <BiPlusCircle size={40} />
-            <span className='text-nav group-hover:scale-100'>
+            <span className='text-nav group-hover:scale-100 '>
               Registrar nuevo
             </span>
           </a>
         </Link>
         <Link href={"/empleados"}>
-          <a className='flex items-center btnNavs group' href=''>
+          <a className='flex items-center btnNavs group empleados' href=''>
             <BiUserCircle size={40} />
             <span className='text-nav group-hover:scale-100'>empleados</span>
           </a>

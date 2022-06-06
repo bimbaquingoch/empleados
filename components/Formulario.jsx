@@ -100,7 +100,7 @@ const Formulario = ({ empleado }) => {
   return (
     <section className={`sectionLogin pb-24`}>
       <div className='bg-[url(/img/img1.jpg)] imgBx bg-cover bg-bottom'></div>
-      <div className={`contentBx ${empleado.id && "h-full mt-10"}`}>
+      <div className={`contentBx  ${empleado.id && "h-full mt-10"}`}>
         <Formik
           validationSchema={nuevoEmpleadoSchema}
           onSubmit={async (values, { resetForm }) => {
