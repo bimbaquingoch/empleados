@@ -13,7 +13,7 @@
     @apply absolute md:relative md:w-1/2 w-full h-full md:h-screen left-0 top-0 before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-t before:from-blue-300 before:to-purple-800 z-10 before:mix-blend-screen;
   }
   .contentBx {
-    @apply flex w-screen md:w-1/2 h-screen justify-center items-center z-10;
+    @apply flex w-screen md:w-1/2 mt-10 md:mt-0 md:h-screen justify-center items-center z-10;
   }
   .imgBx > img {
     @apply w-full h-full object-cover;

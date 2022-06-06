@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { BiTrash, BiEdit } from "react-icons/bi";
 
 const EmpleadoCard = ({ empleado, eliminar }) => {
+  const router = useRouter();
+
   const { name, email, img, lastname, id } = empleado;
 
   return (
@@ -18,7 +21,9 @@ const EmpleadoCard = ({ empleado, eliminar }) => {
           </h3>
           <p className='text-center opacity-50'>{email}</p>
           <div className='flex gap-2'>
-            <button className='flex items-center justify-evenly mt-4 btnForm bg-sky-600 hover:bg-sky-500'>
+            <button
+              onClick={() => router.push(`/editar/${id}`)}
+              className='flex items-center justify-evenly mt-4 btnForm bg-sky-600 hover:bg-sky-500'>
               <span className='lg:text-2xl'>
                 <BiEdit />
               </span>

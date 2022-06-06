@@ -1,16 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import Layout from "../../components/Layout";
+import { formatearFecha } from "../../helpers";
 
 const Empleado = ({ entrada }) => {
   const { birthday, lastname, cedula, email, img, name, phone } = entrada;
   return (
-    <Layout>
+    <Layout page={"empleado"}>
       <div className='w-full my-32 md:m-0 md:h-screen flex md:items-center justify-center m-auto'>
         <div className='cardEmpleado'>
           <div className=' h-full overflow-hidden'>
             <img className='w-full h-full object-cover' src={img} alt='' />
           </div>
-          <div className='contenido'>
+          <div className='contenido md:mr-6'>
             <h2 className='mt-4 text-center md:text-left  text-xl'>
               <span className='heading hidden md:inline border-none md:mr-4 text-slate-200'>
                 nombre:{" "}
@@ -28,7 +29,7 @@ const Empleado = ({ entrada }) => {
                 <span className='heading hidden md:inline border-none md:mr-4 text-slate-200'>
                   fecha de nacimiento:
                 </span>
-                {birthday}
+                {formatearFecha(birthday)}
               </p>
             )}
             {phone && (

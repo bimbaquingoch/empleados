@@ -1,10 +1,5 @@
 import Head from "next/head";
 import Navegacion from "./Navegacion";
-import {
-  AiFillGithub,
-  AiFillTwitterCircle,
-  AiOutlineGlobal,
-} from "react-icons/ai";
 import Footer from "./Footer";
 
 const Layout = ({ children, page }) => {

@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className='md:fixed flex items-center justify-center w-full h-20 backdrop-blur-lg left-0 bottom-0 z-30 shadow-inner'>
+    <footer className='fixed flex items-center justify-center w-full h-20 backdrop-blur-lg left-0 bottom-0 z-30 shadow-inner'>
       <div className='flex gap-8'>
         <a
           className='hover:bg-black hover:text-slate-100 rounded-full transition-all duration-500'
