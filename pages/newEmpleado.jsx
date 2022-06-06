@@ -11,13 +11,21 @@ import { useRouter } from "next/router";
 const NuevoEmpleado = () => {
   const router = useRouter();
   const nuevoEmpleadoSchema = Yup.object().shape({
-    email: Yup.string().email().required("El mail es requerido"),
-    cedula: "",
+    email: Yup.string()
+      .email("email no valido")
+      .required("El mail es obligatorio"),
+    cedula: Yup.number("Solo se acepta numeros")
+      .integer("numero no valido")
+      .positive("numero no valido")
+      .typeError("numero no valido")
+      .required("La cedula es obligatoria"),
     name: Yup.string()
       .min(3, "El nombre es muy corto")
+      .trim("esta vacio")
       .required("El nombre es obligatorio"),
     lastname: Yup.string()
       .min(3, "El apellido es muy corto")
+      .trim("esta vacio")
       .required("El apellido es obligatorio"),
   });
   const data = {
@@ -48,21 +56,39 @@ const NuevoEmpleado = () => {
     }
   };
 
-  const submitForm = (valores) => {
-    console.log(valores);
+  const submitForm = async (valores) => {
+    try {
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/empleados`;
+      await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          ...valores,
+          id: faker.datatype.uuid(),
+          img: faker.image.people(300, 300, true),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      toast.success("Empleado creado");
+      router.push("/empleados");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <Layout page={"Nuevo Empleado"}>
-      <section className='sectionLogin'>
+      <section className='sectionLogin pb-24'>
         <div className='imgBx'>
           <img src='/img/img1.jpg' alt='' />
         </div>
         <div className='contentBx'>
           <Formik
             validationSchema={nuevoEmpleadoSchema}
-            onSubmit={(values) => {
-              submitForm(values);
+            onSubmit={async (values, { resetForm }) => {
+              await submitForm(values);
+              resetForm();
             }}
             initialValues={{
               email: "",
@@ -80,16 +106,25 @@ const NuevoEmpleado = () => {
                 </div>
                 {/* cedula */}
                 <div className='mb-6'>
-                  <label className='label' htmlFor='cedula'>
+                  <label
+                    className={`label ${errors.cedula ? "text-red-400" : null}`}
+                    htmlFor='cedula'>
                     Cédula
                   </label>
                   <Field
-                    className='inputForm'
+                    className={`inputForm ${
+                      errors.cedula
+                        ? "border-red-400 border-2 placeholder-red-300"
+                        : null
+                    }`}
                     id='cedula'
                     name='cedula'
-                    type='number'
+                    type='text'
                     placeholder='1234567890'
                   />
+                  {errors.cedula && touched.cedula ? (
+                    <Alert>{errors.cedula}</Alert>
+                  ) : null}
                 </div>
                 {/* nombre */}
                 <div className='mb-6'>
@@ -139,16 +174,25 @@ const NuevoEmpleado = () => {
                 </div>
                 {/* correo */}
                 <div className='mb-6'>
-                  <label className='label' htmlFor='email'>
+                  <label
+                    className={`label ${errors.email ? "text-red-400" : null}`}
+                    htmlFor='email'>
                     correo
                   </label>
                   <Field
-                    className='inputForm'
+                    className={`inputForm ${
+                      errors.email
+                        ? "border-red-400 border-2 placeholder-red-300"
+                        : null
+                    }`}
                     id='email'
                     name='email'
                     type='email'
                     placeholder='escribe tu email'
                   />
+                  {errors.email && touched.email ? (
+                    <Alert>{errors.email}</Alert>
+                  ) : null}
                 </div>
 
                 <input

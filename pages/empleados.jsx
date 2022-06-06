@@ -21,6 +21,26 @@ const Empleados = () => {
       console.log(error);
     }
   }, [peticion]);
+
+  const eliminar = (id) => {
+    const confirmar = confirm("¿deseas eliminar este empleado?");
+    if (confirmar) {
+      try {
+        const eliminarEmpleado = async () => {
+          const url = `${process.env.NEXT_PUBLIC_API_URL}/empleados/${id}`;
+          const resp = await fetch(url, { method: "DELETE" });
+          await resp.json();
+          const nuevosEmpleados = peticion.filter(
+            (empleado) => empleado.id !== id
+          );
+          setpeticion(nuevosEmpleados);
+        };
+        eliminarEmpleado();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <Layout page={"empleados"}>
       <div className='flex items-center justify-evenly mb-10 my-10'>
@@ -33,20 +53,28 @@ const Empleados = () => {
       </div>
 
       {grid ? (
-        <div className='grid w-full min-h-screen md:grid-cols-2 lg:grid-cols-3 lg:w-9/12 gap-y-24 mt-20 m-auto p-5'>
+        <div className='contentGrid'>
           {peticion.map((empleado) => (
-            <EmpleadoCard key={empleado.id} empleado={empleado} />
+            <EmpleadoCard
+              key={empleado.id}
+              empleado={empleado}
+              eliminar={eliminar}
+            />
           ))}
         </div>
       ) : (
-        <div className='w-full lg:w-9/12 m-auto flex flex-col gap-5 bg-slate-500 md:p-10 rounded-lg'>
+        <div className='contentList'>
           <div className='justify-between hidden md:flex'>
             <h2 className='heading text-slate-100 ml-6'>Nombre</h2>
             <h2 className='heading text-slate-100 '>correo</h2>
             <h2 className='heading text-slate-100  lg:mr-20'>acciones</h2>
           </div>
           {peticion.map((empleado) => (
-            <EmpleadoList key={empleado.id} empleado={empleado} />
+            <EmpleadoList
+              key={empleado.id}
+              empleado={empleado}
+              eliminar={eliminar}
+            />
           ))}
         </div>
       )}
