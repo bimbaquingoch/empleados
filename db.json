@@ -1,0 +1,76 @@
+{
+  "empleados": [
+    {
+      "id": "9beeed9d-110e-49f3-8b67-95cb70a04971",
+      "img": "http://loremflickr.com/300/300/people?7314",
+      "name": "Juana Zboncak",
+      "email": "Myron.Mohr@yahoo.com",
+      "cedula": "6110162049",
+      "phone": "1-897-782-1614 x2181",
+      "birthday": "30 de agosto de 1998"
+    },
+    {
+      "id": "1b808870-6e68-4ba1-ac25-3d60740c83cf",
+      "img": "http://loremflickr.com/300/300/people?32387",
+      "name": "Levi Heller IV",
+      "email": "Connie.Doyle22@gmail.com",
+      "cedula": "1575861637",
+      "phone": "222.909.9316",
+      "birthday": "30 de noviembre de 1963"
+    },
+    {
+      "id": "c8f64131-611c-4dc9-b7c9-e0691b3fad1f",
+      "img": "http://loremflickr.com/300/300/people?63165",
+      "name": "Jeffrey Kulas",
+      "email": "Geoffrey92@gmail.com",
+      "cedula": "6882819738",
+      "phone": "1-202-396-9534",
+      "birthday": "14 de abril de 1977"
+    },
+    {
+      "id": "98940e6d-9753-4f3d-a70a-b563d55c7d7b",
+      "img": "http://loremflickr.com/300/300/people?63531",
+      "name": "Winifred Blick",
+      "email": "Rebeka_Stamm@gmail.com",
+      "cedula": "7018929745",
+      "phone": "881-322-2345",
+      "birthday": "15 de enero de 1992"
+    },
+    {
+      "id": "573bf878-cfb6-4bb5-b535-3ff5ab3af831",
+      "img": "http://loremflickr.com/300/300/people?25048",
+      "name": "Edgar Sawayn",
+      "email": "Reymundo_Kassulke87@gmail.com",
+      "cedula": "5689925822",
+      "phone": "246.375.2208 x223",
+      "birthday": "16 de julio de 1974"
+    },
+    {
+      "id": "fdbd66f7-6550-40a1-b1d1-45d28bc3fbb7",
+      "img": "http://loremflickr.com/300/300/people?86782",
+      "name": "Victor Parisian",
+      "email": "Kira_Simonis15@gmail.com",
+      "cedula": "3564245937",
+      "phone": "1-770-769-6822",
+      "birthday": "16 de marzo de 1964"
+    },
+    {
+      "id": "53e3fb2b-c845-40df-aea3-0b9172101d01",
+      "img": "http://loremflickr.com/300/300/people?63086",
+      "name": "Cora Pfannerstill",
+      "email": "Mitchell.Schmidt@yahoo.com",
+      "cedula": "4345872290",
+      "phone": "(651) 661-9652",
+      "birthday": "20 de diciembre de 1970"
+    },
+    {
+      "id": "bc2c99e8-2e6e-474e-bc49-731309cb5a84",
+      "img": "http://loremflickr.com/300/300/people?2283",
+      "name": "Cedric Cummings",
+      "email": "Vena_Kautzer19@hotmail.com",
+      "cedula": "2604381319",
+      "phone": "1-515-969-3724 x34233",
+      "birthday": "05 de mayo de 1945"
+    }
+  ]
+}
