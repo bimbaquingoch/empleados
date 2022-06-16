@@ -4,7 +4,7 @@ import { BiEdit, BiTrash } from "react-icons/bi";
 
 const EmpleadoList = ({ empleado, eliminar }) => {
   const router = useRouter();
-  const { name, email, lastname, id } = empleado;
+  const { name, email, lastname, _id } = empleado;
   return (
     <div className='list'>
       <p className='text-xl py-3  font-bold md:p-0'>
@@ -14,7 +14,7 @@ const EmpleadoList = ({ empleado, eliminar }) => {
       <div>
         <div className='flex gap-2'>
           <button
-            onClick={() => router.push(`/editar/${id}`)}
+            onClick={() => router.push(`/editar/${_id}`)}
             className='flex items-center justify-evenly  btnForm bg-sky-600 hover:bg-sky-500'>
             <span className='lg:text-2xl'>
               <BiEdit />
@@ -22,7 +22,7 @@ const EmpleadoList = ({ empleado, eliminar }) => {
             editar
           </button>
           <button
-            onClick={() => eliminar(id)}
+            onClick={() => eliminar(_id)}
             className='flex items-center justify-evenly  btnForm bg-red-700 hover:bg-red-600'>
             <span className='lg:text-2xl'>
               <BiTrash />
@@ -30,7 +30,7 @@ const EmpleadoList = ({ empleado, eliminar }) => {
             eliminar
           </button>
         </div>
-        <Link href={`/empleados/${id}`}>
+        <Link href={`/empleados/${_id}`}>
           <button className='mt-2 btnForm'>ver empleado</button>
         </Link>
       </div>

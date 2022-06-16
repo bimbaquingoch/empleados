@@ -1,5 +1,5 @@
+import Layout from "components/Layout";
 import { Field, Form, Formik } from "formik";
-import Layout from "../components/Layout";
 
 /* eslint-disable @next/next/no-img-element */
 const IniciarSesion = () => {

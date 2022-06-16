@@ -23,7 +23,7 @@ const Footer = () => {
         </a>
         <a
           className='rounded-full bg-slate-200 hover:bg-slate-700 hover:text-slate-100 transition-all duration-500'
-          href='https://bimbaquingo.netlify.app/'
+          href='https://bimbaquingo.vercel.app/'
           target={"_blank"}>
           <AiOutlineGlobal size={45} />
         </a>
