@@ -33,9 +33,7 @@ export const getStaticProps = async ({ params: { id } }) => {
   const url = `${process.env.API_URL}/api/empleados/${id}`;
   const respuesta = await fetch(url);
   const entrada = await respuesta.json();
-  return {
-    props: { entrada },
-  };
+  return { props: { entrada } };
 };
 
 export default Editar;

@@ -22,7 +22,7 @@ const EmpleadoCard = ({ empleado, eliminar }) => {
           <p className='text-center opacity-50'>{email}</p>
           <div className='flex gap-2'>
             <button
-              onClick={() => router.push(`/editar/${id}`)}
+              onClick={() => router.push(`/editar/${_id}`)}
               className='flex items-center justify-evenly mt-4 btnForm bg-sky-600 hover:bg-sky-500'>
               <span className='lg:text-2xl'>
                 <BiEdit />

@@ -99,7 +99,7 @@ const Formulario = ({ empleado }) => {
   return (
     <section className={`sectionLogin pb-24`}>
       <div className='bg-[url(/img/img1.jpg)] imgBx bg-cover bg-bottom'></div>
-      <div className={`contentBx  ${empleado.id && "h-full mt-10"}`}>
+      <div className={`contentBx  ${empleado._id && "h-full mt-10"}`}>
         <Formik
           validationSchema={nuevoEmpleadoSchema}
           onSubmit={async (values, { resetForm }) => {
@@ -215,7 +215,7 @@ const Formulario = ({ empleado }) => {
                 ) : null}
               </div>
               {/* datos extr */}
-              {empleado.id && (
+              {empleado._id && (
                 <>
                   <div className='mb-6'>
                     <label className={`label mr-5 mb-0`} htmlFor='birthday'>
@@ -248,7 +248,7 @@ const Formulario = ({ empleado }) => {
                 </>
               )}
               {/* vacunas */}
-              {empleado.id && (
+              {empleado._id && (
                 <div className='mb-6 flex items-center justify-center'>
                   <label className={`label mr-5 mb-0`} htmlFor='vacunado'>
                     Vacunado?

@@ -5,12 +5,17 @@ import { formatearFecha } from "helpers";
 
 const Empleado = ({ entrada }) => {
   const { birthday, lastname, email, img, name, phone } = entrada;
+
   return (
     <Layout page={"empleado"}>
       <div className='w-full my-32 md:m-0 md:h-screen flex md:items-center justify-center m-auto'>
         <div className='cardEmpleado'>
           <div className=' h-full overflow-hidden'>
-            <img className='w-full h-full object-cover' src={img} alt='' />
+            <img
+              className='w-full h-full object-cover'
+              src={img}
+              alt={lastname ? name + " " + lastname : name}
+            />
           </div>
           <div className='contenido md:mr-6'>
             <h2 className='mt-4 text-center md:text-left  text-xl'>
@@ -68,9 +73,7 @@ export const getStaticProps = async ({ params: { id } }) => {
   const url = `${process.env.API_URL}/api/empleados/${id}`;
   const respuesta = await fetch(url);
   const entrada = await respuesta.json();
-  return {
-    props: { entrada },
-  };
+  return { props: { entrada } };
 };
 
 export default Empleado;
