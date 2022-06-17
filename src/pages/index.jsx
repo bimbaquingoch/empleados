@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Layout from "../components/Layout";
+import Layout from "components/Layout";
 
 export default function Home() {
   return (

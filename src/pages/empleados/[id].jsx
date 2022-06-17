@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import Layout from "../../components/Layout";
-import { formatearFecha } from "../../helpers";
+
+import Layout from "components/Layout";
+import { formatearFecha } from "helpers";
 
 const Empleado = ({ entrada }) => {
-  const { birthday, lastname, cedula, email, img, name, phone } = entrada;
+  const { birthday, lastname, email, img, name, phone } = entrada;
   return (
     <Layout page={"empleado"}>
       <div className='w-full my-32 md:m-0 md:h-screen flex md:items-center justify-center m-auto'>
@@ -14,7 +15,7 @@ const Empleado = ({ entrada }) => {
           <div className='contenido md:mr-6'>
             <h2 className='mt-4 text-center md:text-left  text-xl'>
               <span className='heading hidden md:inline border-none md:mr-4 text-slate-200'>
-                nombre:{" "}
+                nombre:
               </span>
               {lastname ? name + " " + lastname : name}
             </h2>
@@ -49,11 +50,11 @@ const Empleado = ({ entrada }) => {
 
 // You should use getStaticPaths if you’re statically pre-rendering pages that use dynamic routes
 export const getStaticPaths = async () => {
-  const url = `${process.env.API_URL}/empleados`;
+  const url = `${process.env.API_URL}/api/empleados`;
   const respuesta = await fetch(url);
   const entradas = await respuesta.json();
   const paths = entradas.map((entrada) => ({
-    params: { id: entrada.id.toString() },
+    params: { id: entrada._id },
   }));
   return {
     paths,
@@ -64,7 +65,7 @@ export const getStaticPaths = async () => {
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
 export const getStaticProps = async ({ params: { id } }) => {
-  const url = `${process.env.API_URL}/empleados/${id}`;
+  const url = `${process.env.API_URL}/api/empleados/${id}`;
   const respuesta = await fetch(url);
   const entrada = await respuesta.json();
   return {

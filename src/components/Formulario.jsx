@@ -43,7 +43,7 @@ const Formulario = ({ empleado }) => {
   const random = async (e) => {
     e.preventDefault();
     try {
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/empleados`;
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/api/empleados`;
       await fetch(url, {
         method: "POST",
         body: JSON.stringify(data),
@@ -60,9 +60,9 @@ const Formulario = ({ empleado }) => {
 
   const submitForm = async (valores) => {
     try {
-      if (empleado.id) {
+      if (empleado._id) {
         //   editando
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/empleados/${empleado.id}`;
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/api/empleados/${empleado._id}`;
         await fetch(url, {
           method: "PUT",
           body: JSON.stringify({
@@ -77,7 +77,7 @@ const Formulario = ({ empleado }) => {
         toast.success("Empleado editado");
       } else {
         //   nuevo
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/empleados`;
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/api/empleados`;
         await fetch(url, {
           method: "POST",
           body: JSON.stringify({

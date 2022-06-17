@@ -6,7 +6,7 @@ import { BiTrash, BiEdit } from "react-icons/bi";
 const EmpleadoCard = ({ empleado, eliminar }) => {
   const router = useRouter();
 
-  const { name, email, img, lastname, id } = empleado;
+  const { name, email, img, lastname, _id } = empleado;
 
   return (
     <div className='card'>
@@ -30,7 +30,7 @@ const EmpleadoCard = ({ empleado, eliminar }) => {
               editar
             </button>
             <button
-              onClick={() => eliminar(id)}
+              onClick={() => eliminar(_id)}
               className='flex items-center justify-evenly  mt-4 btnForm bg-red-700 hover:bg-red-600'>
               <span className='lg:text-2xl'>
                 <BiTrash />
@@ -38,7 +38,7 @@ const EmpleadoCard = ({ empleado, eliminar }) => {
               eliminar
             </button>
           </div>
-          <Link href={`/empleados/${id}`}>
+          <Link href={`/empleados/${_id}`}>
             <button className='mt-2 btnForm'>ver empleado</button>
           </Link>
         </div>
