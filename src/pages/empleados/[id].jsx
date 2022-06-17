@@ -3,7 +3,7 @@
 import Layout from "components/Layout";
 import { formatearFecha } from "helpers";
 
-const Empleado = ({ entrada }) => {
+const Empleado = ({ entrada = [] }) => {
   const { birthday, lastname, email, img, name, phone } = entrada;
   return (
     <Layout page={"empleado"}>
@@ -49,28 +49,28 @@ const Empleado = ({ entrada }) => {
 };
 
 // You should use getStaticPaths if you’re statically pre-rendering pages that use dynamic routes
-export const getStaticPaths = async () => {
-  const url = `${process.env.API_URL}/api/empleados`;
-  const respuesta = await fetch(url);
-  const entradas = await respuesta.json();
-  const paths = entradas.map((entrada) => ({
-    params: { id: entrada._id },
-  }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
+// export const getStaticPaths = async () => {
+//   const url = `${process.env.API_URL}/api/empleados`;
+//   const respuesta = await fetch(url);
+//   const entradas = await respuesta.json();
+//   const paths = entradas.map((entrada) => ({
+//     params: { id: entrada._id },
+//   }));
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
-// You should use getServerSideProps when:
-// - Only if you need to pre-render a page whose data must be fetched at request time
-export const getStaticProps = async ({ params: { id } }) => {
-  const url = `${process.env.API_URL}/api/empleados/${id}`;
-  const respuesta = await fetch(url);
-  const entrada = await respuesta.json();
-  return {
-    props: { entrada },
-  };
-};
+// // You should use getServerSideProps when:
+// // - Only if you need to pre-render a page whose data must be fetched at request time
+// export const getStaticProps = async ({ params: { id } }) => {
+//   const url = `${process.env.API_URL}/api/empleados/${id}`;
+//   const respuesta = await fetch(url);
+//   const entrada = await respuesta.json();
+//   return {
+//     props: { entrada },
+//   };
+// };
 
 export default Empleado;

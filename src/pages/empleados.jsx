@@ -5,7 +5,7 @@ import EmpleadoCard from "components/EmpleadoCard";
 import EmpleadoList from "components/EmpleadoList";
 import NoEmployees from "components/NoEmployees";
 
-const Empleados = ({ empleados }) => {
+const Empleados = ({ empleados = [] }) => {
   const [peticion, setpeticion] = useState([]);
   const [grid, setgrid] = useState(false);
 
@@ -21,15 +21,16 @@ const Empleados = ({ empleados }) => {
     const confirmar = confirm("¿deseas eliminar este empleado?");
     if (confirmar) {
       try {
-        const eliminarEmpleado = async () => {
-          const url = `${process.env.NEXT_PUBLIC_API_URL}/api/empleados/${id}`;
-          const resp = await fetch(url, { method: "DELETE" });
-          const nuevosEmpleados = peticion.filter(
-            (empleado) => empleado._id !== id
-          );
-          setpeticion(nuevosEmpleados);
-        };
-        eliminarEmpleado();
+        console.log(`eliminando ${id}`);
+        // const eliminarEmpleado = async () => {
+        //   const url = `${process.env.NEXT_PUBLIC_API_URL}/api/empleados/${id}`;
+        //   await fetch(url, { method: "DELETE" });
+        //   const nuevosEmpleados = peticion.filter(
+        //     (empleado) => empleado._id !== id
+        //   );
+        //   setpeticion(nuevosEmpleados);
+        // };
+        // eliminarEmpleado();
       } catch (error) {
         console.log(error);
       }
@@ -83,12 +84,12 @@ const Empleados = ({ empleados }) => {
   );
 };
 
-export const getServerSideProps = async () => {
-  const url = `${process.env.API_URL}/api/empleados`;
-  const res = await fetch(url);
-  const empleados = await res.json();
+// export const getServerSideProps = async () => {
+//   const url = `${process.env.API_URL}/api/empleados`;
+//   const res = await fetch(url);
+//   const empleados = await res.json();
 
-  return { props: { empleados } };
-};
+//   return { props: { empleados } };
+// };
 
 export default Empleados;
